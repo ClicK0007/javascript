@@ -23,10 +23,16 @@ let state;
 // symbol => unique
 
 
+// Two ways to check datatype 
+typeof undefined;
+// or
+typeof(undefined);  
+
 
 
 console.log(typeof undefined); // undefined
 console.log(typeof null); // object '#'
+console.log(typeof NaN) // number
 
 /* 
 #
