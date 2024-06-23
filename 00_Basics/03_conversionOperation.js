@@ -129,3 +129,44 @@ NaN is not equal to anything, even itself: NaN === NaN is false.
 
 Use isNaN(value) to check if a value is NaN.
 */ 
+
+/*
+---------------------------------------------------------------------------------------------------------------
+
+Type Coercion: JavaScript performs automatic type conversion (coercion) when applying operators to different types. This can sometimes lead to unexpected results and requires careful handling.
+Type coercion in JavaScript refers to the automatic conversion of values from one data type to another when applying operators or comparing values.
+
+Example of Type Coercion:
+let x = 10;
+let y = '5';
+let result = x + y;
+console.log(result); // Output: "105"
+
+Explanation:
+Variables Initialization:
+x is initialized as a number (10).
+y is initialized as a string ('5').
+
+Operation with Operator:
+In JavaScript, when the + operator is used with a number and a string, JavaScript will coerce (convert) the operands to the same type if possible.
+Here, JavaScript converts the number x to a string ('10'), and then concatenates it with the string y.
+
+Result:
+The resulting value of x + y is '105'.
+This is because JavaScript performs string concatenation when one of the operands of the + operator is a string.
+Comparison Operators:
+console.log(10 == '10'); // Output: true
+console.log(10 === '10'); // Output: false (strict equality does not perform type coercion)
+console.log(0 == false); // Output: true (false is coerced to 0)
+console.log(1 == true); // Output: true (true is coerced to 1)
+
+console.log(5 + true); // Output: 6 (true is coerced to 1)
+console.log(10 + null); // Output: 10 (null is coerced to 0)
+console.log('Hello' + undefined); // Output: "Helloundefined" (undefined is coerced to "undefined")
+
+Handling Type Coercion:
+To avoid unexpected results due to type coercion, it's important to:
+Use strict equality (===) when comparing values to avoid automatic type conversion.
+Be aware of how JavaScript treats different types when performing operations.
+Explicitly convert types using functions like parseInt, parseFloat, String, Number, etc., when needed to ensure clarity and predictability in your code.
+*/
