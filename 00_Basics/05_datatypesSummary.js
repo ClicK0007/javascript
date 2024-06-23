@@ -1,5 +1,9 @@
 /*  Datatypes are divided into two types:
-    Primitive and Non Primitive
+    Primitive (Stored in Stack)
+    returns a copy so changes made is done on the copy
+
+    Non Primitive (Stored in Heap)
+    returns a reference so changes made is done on originary value
     
     Primitive:::: 7 types : String, Number, Boolearn, null, undefined, Symbol, BigInt
     They are call by value (copy is made when u pass it to any function)
