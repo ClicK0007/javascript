@@ -63,11 +63,23 @@ const course = {
 
 
 const {courseInstructor} = course // courseInstructor is variable where value getting stored from course object
-// but key has to be ma
+// but variable name has to be match with object key
 
 console.log(courseInstructor);
+
+
+// To use alias
+// const {courseInstructor : instructor} = course 
 // console.log(instructor);
 
+// These is used in react ex. instead of using props.name, props.username
+// use: ({name, username})
+
+
+
+
+
+// // We get Json data in these format
 // // {
 // //     "name": "hitesh",
 // //     "coursename": "js in hindi",
