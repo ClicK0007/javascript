@@ -19,7 +19,7 @@ let stackName = 'hitesh-hc-com' // stored in stack
 
 
 // console.log(gameName[0]); // h
-// console.log(gameName.__proto__); // {}
+// console.log(gameName.__proto__); // {} // prototype shows the functions which can be done [to see it run it on browser console]
 
 // console.log(gameName.length); 
 // console.log(gameName.toUpperCase()); // not make changes to original string 
