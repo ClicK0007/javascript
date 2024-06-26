@@ -23,7 +23,10 @@ let state;
 // symbol => unique
 
 
-// Two ways to check datatype 
+// Two ways to check datatype  // Both have same functionality
+// typeof is operator
+// typeof operand
+// typeof (operand) // Just for readabilty of complex problem
 typeof undefined;
 // or
 typeof(undefined);  
@@ -33,6 +36,52 @@ typeof(undefined);
 console.log(typeof undefined); // undefined
 console.log(typeof null); // object '#'
 console.log(typeof NaN) // number
+
+// ------------------------------------BIGINT---------------------------------------------
+
+// let n=124890123456789012378902555555756546445745356345376453847568346586834658465864645
+// console.log(n + typeof n); // 1.24890123456789e+80 number
+/* 
+In JavaScript, the number 1.2345678901234568e+19 means:
+1.2345678901234568×10^19  //  LOSS IN PRECISION WHEN STORING IN NUMBER
+*/ 
+
+// const bigInt1 = 1234567890123456789012345678901234567890n;
+// const bigInt2 = BigInt("1234567890123456789012345678901234567890");
+// console.log(bigInt1); // 1234567890123456789012345678901234567890n
+// console.log(bigInt2); // 1234567890123456789012345678901234567890n
+
+
+
+// const bigIntValue = 12345678901234567890n;
+// const numberValue = Number(bigIntValue); // May lose precision if BigInt is too large
+// const bigIntFromNumber = BigInt(123); // 123n
+// console.log(numberValue);      // 1.2345678901234568e+19
+// console.log(bigIntFromNumber); // 123n
+
+
+
+// const bigIntValue1 = 10n;
+// const numberValue1 = 20;
+// // This will throw an error
+// // const sum = bigIntValue + numberValue;
+
+// // Correct way
+// const sum = bigIntValue1 + BigInt(numberValue1); // 30n
+// const sum1 = Number(bigIntValue1) + numberValue1; // 30
+// console.log(sum) // 30n
+// console.log(sum1) // 30
+
+/* 
+When you store a number in JavaScript using exponential notation, it remains within the range of the Number type, which is based on the IEEE 754 double-precision floating-point format.
+*/
+
+// console.log(Number.MAX_SAFE_INTEGER); // 9007199254740991
+// console.log(Number.MIN_SAFE_INTEGER); // -9007199254740991
+// console.log(Number.MIN_VALUE); // 5e-324
+
+
+// ---------------------------------------------------------------------------------------
 
 /* 
 #
