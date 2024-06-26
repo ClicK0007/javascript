@@ -14,7 +14,7 @@ const coding = ["js", "ruby", "java", "python", "cpp"]
 //     console.log(item); // prints each item in coding
 // }
 
-// coding.forEach(printMe)
+// coding.forEach(printMe) // Send reference of function don't execute it [printMe()]
 
 
 
