@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM | Chai aur code</title>
+  </head>
+  <body style="background-color: #212121; color: #fff">
+    <div class="parent">
+      <!-- this is a comment -->
+      <div class="day">Monday</div>
+      <div class="day">Tuesday</div>
+      <div class="day">Wednesday</div>
+      <div class="day">Thursday</div>
+    </div>
+  </body>
+  <script>
+    const parent = document.querySelector(".parent");
+    // console.log(parent); // gives all the divs inside parent
+    // console.log(parent.children); // gives HTML collection
+    // console.log(parent.children[1].innerHTML); // Tuesday
+
+    // for (let i = 0; i < parent.children.length; i++) {
+    //      console.log(parent.children[i].innerHTML); // Gives all days
+    // }
+
+    parent.children[1].style.color = "orange";
+    // console.log(parent.firstElementChild); // <div class="day">Monday</div>
+    // console.log(parent.lastElementChild); // <div class="day">Thursday</div>
+
+    const dayOne = document.querySelector(".day");
+    // console.log(dayOne);
+    // console.log(dayOne.parentElement); // get parent element
+    // console.log(dayOne.nextElementSibling); // <div class="day">Tuesday</div>
+
+    console.log("NODES: ", parent.childNodes);
+    /*  
+    IN HTML, NODES ARE VERY IMPORTANT
+    EVERY THING IS CALCULATE IN NODE LIKE LINE BREAK(ONE THAN ONE LINE BREAK IS CONSIDER AS ONE) COMMENT ALSO CONSIDER AS ONE NODE.
+    NODES:  
+    NodeList(11)
+    0: text // FOR LINE BREAK
+    1: comment
+    2: text
+    3: div.day
+    4: text
+    5: div.day
+    6: text
+    7: div.day
+    8: text
+    9: div.day
+    10: text
+    length: 11
+    [[Prototype]]
+    :NodeList
+    */
+  </script>
+</html>

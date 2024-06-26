@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur code | DOM</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(langName){
+        const li = document.createElement('li'); 
+        li.innerHTML = `${langName}` // traversed the whole tree
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguage("python")
+    addLanguage("typescript")
+
+    function addOptiLanguage(langName){ // Optimized way 
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName)) // createTextNode not traversed the whole tree
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptiLanguage('golang')
+    /*
+    Why Optimized?
+    innerHTML and its Overhead
+    Parsing: The string provided to innerHTML is parsed as HTML. This means the browser must interpret the string to understand the HTML structure and convert it into DOM nodes.
+    DOM Traversal: If the string contains nested elements, the browser must create a hierarchical tree of DOM nodes. This traversal involves additional computational overhead, especially if the HTML structure is complex.
+
+    createTextNode and its Efficiency
+    Direct Text Node Creation: createTextNode creates a text node that directly holds the text content. There's no need for the browser to parse the text as HTML.
+    No DOM Traversal: Since createTextNode does not involve any HTML parsing, there's no creation of nested DOM elements. The text is inserted directly as a text node.
+    */
+
+    //Edit
+    const secondLang = document.querySelector("li:nth-child(2)")
+    console.log(secondLang); // <li>python</li>
+    //secondLang.innerHTML = "Mojo"
+    // // or
+    const newli = document.createElement('li')
+    newli.textContent = "Mojo"
+    secondLang.replaceWith(newli)
+
+    //edit
+    const firstLang = document.querySelector("li:first-child")
+    firstLang.outerHTML = '<li>TypeScript</li>' // To change whole html
+
+    //remove
+    const lastLang = document.querySelector('li:last-child')
+    lastLang.remove()
+
+
+</script>
+</html>

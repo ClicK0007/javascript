@@ -54,7 +54,7 @@ document.querySelector('.heading')
 
 document.querySelector('input[type="password"]') // IF NO VALUE GET THEN 'null''
 
-// ===========================================================================================================
+// ===============================================================================================
 
 // You cannot loop through HTMLCollection as there is no such method in prototype
 let divs = document.getElementsByTagName('div'); // HTMLCollection
