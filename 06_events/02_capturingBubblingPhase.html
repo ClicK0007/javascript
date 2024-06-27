@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Capturing Phase Example</title>
+</head>
+<body>
+  <div id="container">
+    <div id="child">Click me</div>
+  </div>
+
+  <script>
+    // Capturing phase listener on the container
+    document.getElementById('container').addEventListener('click', function(e) {
+      console.log('Container clicked - Capturing phase');
+        //   e.stopPropagation(); 
+    }, true); // true indicates capturing phase
+
+    // Capturing phase listener on the child
+    document.getElementById('child').addEventListener('click', function(e) {
+      console.log('Child clicked - Capturing phase');
+    }, true); // true indicates capturing phase
+
+    // // Bubbling phase listener on the container
+    // document.getElementById('container').addEventListener('click', function() {
+    //   console.log('Container clicked - Bubbling phase');
+    // });
+
+    // // Bubbling phase listener on the child
+    // document.getElementById('child').addEventListener('click', function(e) {
+    //   console.log('Child clicked - Bubbling phase');
+        //   e.stopPropagation();
+    // });
+
+  </script>
+</body>
+</html>
+
+<!-- 
+/*
+    capture	Optional (default = false).
+    true - The handler is executed in the capturing phase.
+    false - The handler is executed in the bubbling phase.
+*/
+Simple Explanation
+Capturing phase - parent to child 
+Bubbling phase - child to parent (default)
+addEventListener mein third argument hota capture. Baaki bhi hote woh Niche likhe hai main capture hai.
+Upar 4 methods likhe hai jismein se 2 capturing phase hai or 2 bubbling phase
+Capturing phase run krrne ke liye Capturing phase ke dono methods true hona chahiye same for bubbling phase
+Capturing phase mein container clicked pehle aayega toh usska futher propagation means child clicked nahi aana chahiye toh  e.stopPropagation(); likhna padega CONTAINER mein
+Bubbling phase mein child clicked pehle aayega toh usska futher propagation means container clicked nahi aana chahiye toh  e.stopPropagation(); likhna padega CHILD mein Baaki jagah likh ke fayda bhi nhi execution ke baad
+
+----------------------------------------------------------------------------------------------
+aab extra agar ek hi issmein true likha toh kya hoga
+depends on parent ki parent mein kya likha h
+-->
+
+
+
+<!-- 
+addEventListener third argument can be:
+1. capture (By default false)
+Indicates that the event should be captured during the capturing phase.
+Capturing phase - Parent to child 
+Ex. above code contains console log for ul id= images and li (inside the ul) for owl
+    when you clicked on owl the Capturing phase will first invoked the parent and then child
+
+Bubbling phase - child to parent 
+Ex. above code contains console log for ul id= images and li (inside the ul) for owl
+    when you clicked on owl the Bubbling phase will first invoked the child and then parent (Like bubble)
+
+document.addEventListener('click', function() {
+    console.log('Document clicked - Capturing phase');
+}, { capture: true });
+
+document.getElementById('myButton').addEventListener('click', function() {
+    console.log('Button clicked - Bubbling phase');
+});
+
+
+2. once
+Listener will be invoked at most once after being added. It will be removed automatically once invoked.
+
+document.getElementById('myButton').addEventListener('click', function() {
+    console.log('Button clicked - Listener removed after first click');
+}, { once: true });
+
+
+3. passive
+Listener will never call preventDefault(). Useful for improving performance on touch and wheel events.
+
+document.getElementById('myButton').addEventListener('touchstart', function(event) {
+    console.log('Touch start - Cannot prevent default behavior');
+    // event.preventDefault(); // This would generate a console warning
+}, { passive: true });
+
+
+4. signal
+Listener will be removed when the given AbortSignal object's abort() method is called.
+
+const controller = new AbortController();
+const signal = controller.signal;
+
+document.getElementById('myButton').addEventListener('click', function() {
+    console.log('Button clicked - Listener can be aborted');
+}, { signal: signal });
+
+// To remove the listener
+controller.abort();
+
+
+5. useCapture 
+Indicates that the event should be captured during the capturing phase, similar to capture.
+
+document.addEventListener('click', function() {
+    console.log('Document clicked - Capturing phase');
+}, true);
+
+document.getElementById('myButton').addEventListener('click', function() {
+    console.log('Button clicked - Bubbling phase');
+});
+-->

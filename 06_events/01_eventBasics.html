@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>htnml Events</title>
+  </head>
+  <body style="background-color: #414141; color: aliceblue">
+    <h2>Amazing image</h2>
+    <div>
+      <ul id="images">
+        <li>
+          <img
+            width="200px"
+            id="photoshop"
+            src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt="photoshop"
+          />
+        </li>
+
+        <li>
+          <img
+            width="200px"
+            id="japan"
+            src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+
+        <li>
+          <img
+            width="200px"
+            id="river"
+            src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+
+        <!-- OWL -->
+        <li>
+          <img
+            width="200px"
+            id="owl"
+            src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <!-- Adding onclick here not give more functions -->
+
+        <li>
+          <img
+            width="200px"
+            id="prayer"
+            src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+            alt=""
+          />
+        </li>
+        <li>
+          <a style="color: aliceblue" href="https://google.com" id="google"
+            >Google</a
+          >
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    // document.getElementById('owl').onclick = function(){ // Adding onclick here not give more functions
+    //     alert("owl clicked")
+    // }
+
+    // // OTHER METHODS
+    // attachEvent()
+    // jQuery - on
+
+    // // USE THESE BECAUSE EVENT LISTENER GIVES MORE FUNCTIONS
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");
+    // }, false)
+
+    /*
+     MUST GO FUNCTION OF EVENTLISTENERS -
+     "It gives timestamp when clicked event happens, also it gives x-y axis where clicked happened so you can add something there"
+     type, timestamp, defaultPrevented
+     target, toElement, srcElement, currentTarget,
+     clientX, clientY, screenX, screenY
+     altkey, ctrlkey, shiftkey, keyCode
+     */
+
+    // // ------------add event listener third argument on 02_capturingBubblingPhase----------------------
+    
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     // e.preventDefault(); // to preventDefault behaviour of navigating to website
+    //     console.log("google clicked");
+    // }, false)
+
+    // // Must go on -  how to remove image on click
+    document.querySelector("#images").addEventListener("click", function (e) {
+      console.log(e.target.tagName);
+      if (e.target.tagName === "IMG") { // To apply strict checking or it will remove whole ul when clicked on li
+        console.log(e.target.id); // id will give whole img tag
+        let removeIt = e.target.parentNode; // parent node of img is li
+        removeIt.remove(); 
+        //removeIt.parentNode.removeChild(removeIt) // Second method // parentNode is ul, remove child means remove li
+      }
+
+      /*
+      element.removeEventListener(event, function, capture)
+      Capture-
+        Optional (default = false).
+        true - Remove the handler from capturing.
+        false- Remove the handler from bubbling.
+      */
+    });
+
+  </script>
+</html>
