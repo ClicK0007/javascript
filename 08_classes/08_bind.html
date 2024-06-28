@@ -17,7 +17,8 @@
             //requirement
             document
                 .querySelector('button')
-                .addEventListener('click', this.handleClick.bind(this))
+                // .addEventListener('click', this.handleClick()) // values will not passed
+                .addEventListener('click', this.handleClick.bind(this)) // values of server and library will pass with this
         }
         handleClick(){
             console.log("button clicked");

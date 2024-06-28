@@ -272,3 +272,26 @@ In JavaScript, a call is a method that allows you to invoke a function with a sp
 //   console.log(email.apply(student, ["korde", "gmail"])); // ameykorde@gmail.com
 //   console.log(email.apply(teacher, ["parker", "outlook"])); // Peterparker@outlook.com
   
+
+// /// You have to call email.apply(student, ["korde", "gmail"]) to get email
+
+// // What if you want to call these method many times
+
+
+function getEmail(lastname, domainName) {
+    return this.email = `${this.name}${lastname}@${domainName}.com`;
+    // Sets new field in object same for APPLY AND BIND
+  }
+  
+  const student = {
+    name: "amey",
+    age: 24,
+  };
+  
+  const teacher = {
+    name: "Peter",
+    age: 44,
+  };
+
+  console.log(getEmail.call(student, "korde", "gmail")) // ameykorde@gmail.com
+  console.log(student) // { name: 'amey', age: 24, email: 'ameykorde@gmail.com' }
