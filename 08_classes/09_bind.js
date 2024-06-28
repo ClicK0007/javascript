@@ -1,3 +1,7 @@
+/*
+In JavaScript, bind is a method used to create a new function that, when called, has its this keyword set to the provided value. The primary use case of bind is to ensure that this has the correct context when the function is executed, especially in scenarios where the function is passed as a callback or event handler.
+*/
+
 function email(lastname, domainName) {
     return `${this.name}${lastname}@${domainName}.com`;
   }

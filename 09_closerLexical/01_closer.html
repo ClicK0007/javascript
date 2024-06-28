@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Closure aur chai</title>
+  </head>
+  <body style="background-color: #313131">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+  </body>
+
+  <script>
+    /*
+   "Lexical scope, also known as static scope, in JavaScript refers to the region in the code where a variable is defined and accessible. It is determined at the time of writing the code, based on the nesting of functions and blocks. A function's lexical scope allows it to access variables from its own scope and any outer (parent) scopes, but not from any nested (child) scopes or sibling scopes. This scope chain is resolved at compile time, meaning the structure of the code dictates variable accessibility, not the runtime call stack."
+    */
+    // function outer() {
+    //   let username = "hitesh";
+    // //   console.log("OUTER", secret); // not accessible to parent
+    //   function inner() {
+    //     let secret = "my123";
+    //     console.log("inner", username); // accessible
+    //   }
+    //   function innerTwo() {
+    //     console.log("innerTwo", username); // accessible
+    //     console.log(secret); // not accessible to siblings
+    //   }
+    //   inner();
+    //   innerTwo();
+    // }
+    // outer();
+    // console.log("TOO OUTER", username); // not accessible outside scope
+
+  </script>
+  <script>
+    /*
+    A closure is a feature where an inner function has access to the outer (enclosing) function's variables, even after the outer function has finished executing. Closures are created whenever a function is created within another function.
+    */
+    // function makeFunc() {
+    //     const name = "Mozilla";
+    //     function displayName() {
+    //         console.log(name);
+    //     }
+    //     return displayName; // returning the function so outer function execution is over but the "name" variable memory reference is not marked for garbage collection these is because of closer 
+    // }
+    // const myFunc = makeFunc();
+    // myFunc();
+
+
+    // // Real Life problem of closure and solution
+    // document.getElementById("orange").onclick = function(){
+    //     document.body.style.backgroundColor = `orange`
+    // }
+    // document.getElementById("green").onclick = function(){
+    //     document.body.style.backgroundColor = `green`
+    // }
+
+    // function clickHandler(color){
+    //     // document.body.style.backgroundColor = `${color}`
+
+    //     return function(){
+    //         document.body.style.backgroundColor = `${color}`
+    //     }
+    // }
+
+    // document.getElementById('orange').onclick = clickHandler //.onclick want function not reference 
+    // document.getElementById('orange').onclick = clickHandler("orange") // not reference so if you 
+    // document.getElementById('orange').onclick = clickHandler("orange") // -=-=-=- if there is no return function in clickHandler then the function will execute immediately  
+    document.getElementById('green').onclick = clickHandler("green")
+  </script>
+</html>
