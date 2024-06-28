@@ -4,6 +4,8 @@ IN .then BLOCK SAME WITH ASYNC AWAIT TRY CATCH BLOCK
 The Fetch API considers these status codes as successful fetch operations from a network perspective, so the response will go to the .then block. However, you'll likely want to handle these status codes as errors, which is why it's common practice to check the response.ok property in the .then block and throw an error if it's false.
 */
 
+// https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+
 // Promise One
 const promiseOne = new Promise(function(resolve, reject){ // takes 2 arguments
     // Do an async task
